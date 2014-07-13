@@ -11,11 +11,13 @@ class ListingsController < ApplicationController
   def get_angel_list_jobs
     # Listing.delete_all
     count = 1
-    while Listing.count < 100
+    while Listing.count < 1000
       response = HTTParty.get("https://api.angel.co/1/jobs?page=#{count}")
       response['jobs'].each do |listing|
+
         # improve search time
         # if listing['title'].include? 'dev' || 'Dev'
+
           Listing.create(
             listing_id:   listing['id'],
             title:        listing['title'],

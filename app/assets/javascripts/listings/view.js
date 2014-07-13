@@ -2,7 +2,7 @@
 * @Author: Richard Hessler
 * @Date:   2014-07-12 18:10:13
 * @Last Modified by:   Richard Hessler
-* @Last Modified time: 2014-07-13 16:11:08
+* @Last Modified time: 2014-07-13 16:49:28
 */
 
 var ListingsView = Backbone.View.extend({
@@ -22,4 +22,3 @@ var ListingsView = Backbone.View.extend({
     return this.$el.html(html);
   }
 });
-
