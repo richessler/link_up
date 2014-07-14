@@ -31,7 +31,6 @@
     <%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
 
 
-    <%= javascript_include_tag "application" %>
   </head>
   <body>
 
@@ -43,7 +42,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/">Linkup</a>
+          <a class="brand" href="/linkedin_profile">Linkup</a>
           <div class="container nav-collapse">
             <ul class="nav">
               <% if user_signed_in? %>
@@ -61,13 +60,12 @@
 
     <div class="container">
         <div class="row">
-          <div class="span9">
             <%= bootstrap_flash %>
             <%= yield %>
-          </div>
         </div><!--/row-->
     </div> <!-- /container -->
 
+    <%= javascript_include_tag "application" %>
   </body>
 </html>
 

@@ -2,7 +2,7 @@
 * @Author: Richard Hessler
 * @Date:   2014-07-12 16:09:43
 * @Last Modified by:   Richard Hessler
-* @Last Modified time: 2014-07-13 18:52:49
+* @Last Modified time: 2014-07-13 23:39:22
 */
 
 var ListingModel = Backbone.Model.extend({
@@ -22,7 +22,7 @@ var ListingModel = Backbone.Model.extend({
 
 var ListingCollection = Backbone.Collection.extend({
   model: ListingModel,
-  url: '/listings#index'
+  url: '/listings'
 });
 
-// var listingCollection = new ListingCollection();
+var listingCollection = new ListingCollection();
