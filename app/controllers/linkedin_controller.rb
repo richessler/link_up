@@ -16,6 +16,7 @@ class LinkedinController < ApplicationController
 
   def linkedin_profile
     @basic_profile = get_basic_profile
+    @favorites = Favorite.where(user_id: current_user.id)
   end
 
   def oauth_account

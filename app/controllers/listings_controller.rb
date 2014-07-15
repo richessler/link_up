@@ -9,15 +9,17 @@ class ListingsController < ApplicationController
   end
 
   def create
+    binding.pry
     @favorite = Favorite.new(favorite_params)
     @favorite.user_id = current_user.id
     @favorite.save
   end
 
-  def destroy
-    @listing = Listing.find(params[:id])
-    @listing.destroy
-  end
+  # def destroy
+  #   binding.pry
+  #   @listing = Listing.find(params[:id])
+  #   @listing.destroy
+  # end
 
   private
 

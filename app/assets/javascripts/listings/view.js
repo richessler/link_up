@@ -2,7 +2,7 @@
 * @Author: Richard Hessler
 * @Date:   2014-07-12 18:10:13
 * @Last Modified by:   Richard Hessler
-* @Last Modified time: 2014-07-14 17:14:17
+* @Last Modified time: 2014-07-15 00:35:59
 */
 
 var ListingsView = Backbone.View.extend({
@@ -43,7 +43,7 @@ var ListingsView = Backbone.View.extend({
       thumb_url   : newListing.thumb_url,
       company_url : newListing.company_url
     });
-
+    this.collection.at(0).destroy();
     this.collection.at(0).destroy();
   }
 });

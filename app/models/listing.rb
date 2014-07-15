@@ -5,9 +5,10 @@ class Listing < ActiveRecord::Base
   def Listing.get_angel_list_jobs
 
     # query api upto(n) times and reduce into a single array 'results'
-    results = 1.upto(1).reduce([]) do |memo, count|
+    # results = 1.upto(rand(50)).reduce([]) do |memo, count|
 
       # set query JSON results to response
+      count = rand(50)
       response = HTTParty.get("https://api.angel.co/1/jobs?page=#{count}")
       # map
       result_set = response['jobs'].map do |listing|
@@ -34,8 +35,8 @@ class Listing < ActiveRecord::Base
           }
         end
       end
-        memo += result_set
-    end
+        # memo += result_set
+    # end
   end
 
   def Listing.get_country_currency(key)
