@@ -10,8 +10,12 @@ class LinkedinController < ApplicationController
 
   def index
     unless LinkedinOauthSetting.find_by_user_id(current_user.id).nil?
-      redirect_to "/linkedin_profile"
     end
+  end
+
+  def show
+    @basic_profile = get_basic_profile
+    @favorites = Favorite.where(user_id: current_user.id)
   end
 
   def linkedin_profile

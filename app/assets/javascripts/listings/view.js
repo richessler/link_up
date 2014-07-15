@@ -2,12 +2,12 @@
 * @Author: Richard Hessler
 * @Date:   2014-07-12 18:10:13
 * @Last Modified by:   Richard Hessler
-* @Last Modified time: 2014-07-15 00:35:59
+* @Last Modified time: 2014-07-15 16:35:39
 */
 
 var ListingsView = Backbone.View.extend({
   tagName: "div",
-  className: "col-lg-offset-3 col-lg-6",
+  className: "listing col-lg-offset-3 col-lg-6",
 
   template: _.template( $("#job-listings-template").html() ),
 
@@ -22,15 +22,37 @@ var ListingsView = Backbone.View.extend({
   },
 
   render: function () {
-    var html = this.template({ collection: this.collection });
-    return this.$el.html(html);
+    if (this.collection.at(0).attributes.description) {
+
+      var html = this.template({ collection: this.collection });
+      return this.$el.html(html);
+
+    } else {
+      this.collection.at(0).destroy();
+      this.render();
+    }
+  },
+
+  click: function(slideLeft) {
+    var listing = $(".listing");
+      listing.animate({
+        left: slideLeft ? "-100%" : '100%'
+        }, {
+        duration: 750,
+        complete: function() {
+          listingCollection.at(0).destroy();
+          listing.css({ left: "0" });
+        }
+      });
   },
 
   onRemove: function() {
-    this.collection.at(0).destroy();
+    this.click(true);
+    // this.collection.at(0).destroy();
   },
 
   onKeep: function() {
+    this.click(false);
     var newListing = this.collection.at(0).attributes;
     this.collection.create({
       listing_id  : newListing.listing_id,
@@ -43,8 +65,7 @@ var ListingsView = Backbone.View.extend({
       thumb_url   : newListing.thumb_url,
       company_url : newListing.company_url
     });
-    this.collection.at(0).destroy();
-    this.collection.at(0).destroy();
+    this.collection.at(1).destroy();
   }
 });
 

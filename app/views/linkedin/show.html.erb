@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="profile thumbnail col-lg-3">
+    <img src="<%= @basic_profile.picture_url %>" style="float: left;margin: 5px;">
+    <h3><%= @basic_profile.formatted_name %></h3>
+    <h4><%= @basic_profile.headline %></h4>
+    <br>
+    <p><%= @basic_profile.summary %></p>
+  </div>
+
+  <div class="saved-listings thumbnail col-lg-8">
+    <% @favorites.each do |favorite| %>
+    <h3><%= favorite.title %></h3>
+    <% end %>
+  </div>
+</div>
+

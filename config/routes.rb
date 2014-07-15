@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
                      #don't use devise namespace for the callback, use omniauthcallbacks controller
-  devise_for :users, :controllers => { omniauth_callbacks: "omniauth_callbacks" }
-
-  # resources :users, only: [:show]# do
-  #   resources :favorites, only: [:create, :destroy]
-  # end
+  devise_for :users, :controllers => { omniauth_callbacks: "omniauth_callbacks"}
+  # devise_for :users, :controllers => {:show => "users/show", omniauth_callbacks: "omniauth_callbacks"}
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -16,9 +13,9 @@ Rails.application.routes.draw do
   get '/linkedin_profile' => 'linkedin#linkedin_profile'
   get '/oauth_account' => 'linkedin#oauth_account'
   get '/linkedin_oauth_url' => 'linkedin#generate_linkedin_oauth_url'
-  root :to => 'linkedin#index'
+  root :to => 'welcome#index'
 
-  resources :listings, only: [:index, :create, :destroy]
+  resources :listings, only: [:index, :create, :new, :destroy]
 
   # get '/listings' => 'listings#index'
   # Example of regular route:
