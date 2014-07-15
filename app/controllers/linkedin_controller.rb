@@ -16,16 +16,13 @@ class LinkedinController < ApplicationController
 
   def linkedin_profile
     @basic_profile = get_basic_profile
-    # @full_profile = get_full_profile
-    # @positions = get_positions
-    # @educations = get_educations
   end
 
   def oauth_account
-    client = LinkedIn::Client.new(ENV["LINKEDIN_API_KEY"], ENV["LINKEDIN_SECRET"], @@config)
+    @client = LinkedIn::Client.new(ENV["LINKEDIN_API_KEY"], ENV["LINKEDIN_SECRET"], @@config)
     pin = params[:oauth_verifier]
     if pin
-      atoken, asecret = client.authorize_from_request(session[:rtoken], session[:rsecret], pin)
+      atoken, asecret = @client.authorize_from_request(session[:rtoken], session[:rsecret], pin)
       LinkedinOauthSetting.create!(:asecret => asecret, :atoken => atoken, :user_id => current_user.id)
     end
     redirect_to "/"

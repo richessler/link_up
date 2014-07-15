@@ -1,14 +1,12 @@
 ##############################################
 #!/usr/bin/ruby
 # @Author: Richard Hessler
-# @Date:   2014-07-11 10:03:47
+# @Date:   2014-07-14 11:09:12
 # @Last Modified by:   Richard Hessler
-# @Last Modified time: 2014-07-14 22:46:16
+# @Last Modified time: 2014-07-14 17:49:54
 ##############################################
 
-class WelcomeController < ApplicationController
-
-  def index
-  end
+class FavoritesController < ApplicationController
+  before_action :find_user
 
 end

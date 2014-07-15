@@ -4,15 +4,17 @@
 </div>
 
 <script type="text/template" id="job-listings-template">
-
-    <p><%%= collection.at(0).get('title') %></p>
-    <p><%%= collection.at(0).get('description') %></p>
-    <p><%%= collection.at(0).get('equity_min') %></p>
-    <p><%%= collection.at(0).get('equity_max') %></p>
-    <p><%%= collection.at(0).get('salary_min') %></p>
-    <p><%%= collection.at(0).get('salary_max') %></p>
-    <p><%%= collection.at(0).get('thumb_url') %></p>
-    <p><%%= collection.at(0).get('company_url') %></p>
-    <span> &times; </span>
-
+    <%% listing = collection.at(0) %>
+        <h1><%%= listing.get('company_name') %></h1> <img src="<%%= listing.get('thumb_url') %>" class="img-rounded img-responsive movie-choice" alt="Responsive image">
+            <h2><%%= listing.get('title') %></h2>
+                <p>Job Description: <%%= listing.get('description') %></p>
+                <p>Minimum Equity: <%%= listing.get('equity_min') %>%</p>
+                <p>Maximum Equity: <%%= listing.get('equity_max') %>%</p>
+                <p>Minimum Salary: <%%= listing.get('currency_code') %> <%%= Intl.NumberFormat().format(listing.get('salary_min')) %></p>
+                <p>Maximum Salary: <%%= listing.get('currency_code') %> <%%= Intl.NumberFormat().format(listing.get('salary_max')) %></p>
+                <%% if (listing.get('location')) {%>
+                    <p>Location: <%%= listing.get('location') %></p>
+                <%% } %>
+                <p><a href="<%%= listing.get('company_url') %>"><%%= listing.get('company_name')%></a></p>
+                <button class="destroy"> FUCK NO </button>  <button class="keep"> Oh, yeah </button>
 </script>

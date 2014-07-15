@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  has_one :basic_profile
-  has_one :linkedin_oauth_setting
+  has_one  :basic_profile
+  has_one  :linkedin_oauth_setting
+  has_many :favorites
 
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -24,7 +25,7 @@ class User < ActiveRecord::Base
                             uid:auth.uid,
                             email:auth.info.email,
                             password:Devise.friendly_token[0,20],
-                            #name:auth.info.first_name,
+                            # name:auth.info.first_name,
                           )
       end
     end

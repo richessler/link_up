@@ -3,7 +3,7 @@
 # @Author: Richard Hessler
 # @Date:   2014-07-11 10:14:32
 # @Last Modified by:   Richard Hessler
-# @Last Modified time: 2014-07-13 14:08:52
+# @Last Modified time: 2014-07-14 23:19:35
 ##############################################
 
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
