@@ -30,6 +30,7 @@ group :development do
   gem 'pry-rails'
 end
 
+gem 'rake'
 gem 'httparty'
 gem 'devise'
 gem 'omniauth'
