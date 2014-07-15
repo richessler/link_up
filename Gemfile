@@ -34,7 +34,6 @@ group :production do
   gem 'rails_12factor'                  # serve static assets on Heroku
 end
 
-gem 'rake', '>= 10.3.2'
 gem 'httparty'
 gem 'devise'
 gem 'omniauth'
