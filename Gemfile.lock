@@ -63,7 +63,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     jwt (1.0.0)
-    less (2.5.0)
+    less (2.5.1)
       commonjs (~> 0.2.7)
     less-rails (2.5.0)
       actionpack (>= 3.1)
