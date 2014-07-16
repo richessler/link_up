@@ -23,16 +23,13 @@
   </div>
 </div><!-- .page-wrapper -->
 
-<div class="listings">
-  <% if current_user %>
-    <%= button_to "Let's Mingle", listings_path, method: 'get', class: "btn listings-btn btn-group-lg" %>
-  <% end %>
-</div>
-
-
-
-
 <footer class="footer-container">
+
+  <div class="listings-enter">
+    <% if current_user %>
+      <%= button_to "Let's Mingle", listings_path, method: 'get', class: "btn listings-btn btn-group-lg" %>
+    <% end %>
+  </div>
   <footer id="gaz-sub-footer" class="row-fluid">
     <div class="container">
       <div class="d-block d-block-helper-tfw g-helper-tfw-tweet-count-button">

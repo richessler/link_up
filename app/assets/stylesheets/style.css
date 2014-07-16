@@ -143,3 +143,8 @@ body {
 
   text-align: center;
 }
+
+.listings-enter {
+  float: right;
+  margin-right: 500px;
+}

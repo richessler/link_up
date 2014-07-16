@@ -64,7 +64,6 @@ class LinkedinController < ApplicationController
                       summary: profile.summary,
                       location: profile.location.name
                     }
-
     new_basic_profile = BasicProfile.find_or_create_by(basic_profile)
     new_basic_profile.user = current_user
     new_basic_profile

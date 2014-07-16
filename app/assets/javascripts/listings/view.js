@@ -2,7 +2,7 @@
 * @Author: Richard Hessler
 * @Date:   2014-07-12 18:10:13
 * @Last Modified by:   Richard Hessler
-* @Last Modified time: 2014-07-16 08:13:32
+* @Last Modified time: 2014-07-16 09:19:17
 */
 
 var ListingsView = Backbone.View.extend({
@@ -48,7 +48,6 @@ var ListingsView = Backbone.View.extend({
 
   onRemove: function() {
     this.click(true);
-    // this.collection.at(0).destroy();
   },
 
   onKeep: function() {
