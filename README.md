@@ -1,6 +1,6 @@
-# wine-oh!
+# LinkUp
 
-### GA WDI DC 01 2014, Project 1
+### GA WDI DC 01 2014, Project 3
 
 ### Overview
 
