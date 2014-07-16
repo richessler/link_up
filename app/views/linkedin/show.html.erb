@@ -9,7 +9,10 @@
 
   <div class="saved-listings thumbnail col-lg-8">
     <% @favorites.each do |favorite| %>
-    <h3><%= favorite.title %></h3>
+    <div class="favorites">
+      <h3><a href="<%=favorite.company_url%>"><%= favorite.title %></a></h3>
+      <p><%=favorite.description %></p>
+    </div>
     <% end %>
   </div>
 </div>

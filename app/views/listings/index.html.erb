@@ -7,16 +7,23 @@
 
 <script type="text/template" id="job-listings-template">
     <%% listing = collection.at(0) %>
-        <h1><%%= listing.get('company_name') %></h1> <img src="<%%= listing.get('thumb_url') %>" class="img-rounded img-responsive movie-choice" alt="Responsive image">
-            <h2><%%= listing.get('title') %></h2>
-                <p>Job Description: <%%= listing.get('description') %></p>
-                <p>Minimum Equity: <%%= listing.get('equity_min') %>%</p>
-                <p>Maximum Equity: <%%= listing.get('equity_max') %>%</p>
-                <p>Minimum Salary: <%%= listing.get('currency_code') %> <%%= Intl.NumberFormat().format(listing.get('salary_min')) %></p>
-                <p>Maximum Salary: <%%= listing.get('currency_code') %> <%%= Intl.NumberFormat().format(listing.get('salary_max')) %></p>
-                <%% if (listing.get('location')) {%>
-                    <p>Location: <%%= listing.get('location') %></p>
-                <%% } %>
-                <p><a href="<%%= listing.get('company_url') %>"><%%= listing.get('company_name')%></a></p>
-                <button class="destroy"> Not Interested</button>  <button class="keep"> Interested</button>
+        <h1><%%= listing.get('company_name') %></h1>
+        <div class="listing-details">
+        <img src="<%%= listing.get('thumb_url') %>" class="img-rounded img-responsive movie-choice" alt="Responsive image">
+          <h2><a href="<%%= listing.get('company_url') %>"><%%= listing.get('title') %></a></h2>
+              <p>Minimum Equity: <%%= listing.get('equity_min') %>%</p>
+              <p>Maximum Equity: <%%= listing.get('equity_max') %>%</p>
+              <p>Minimum Salary: <%%= listing.get('currency_code') %> <%%= Intl.NumberFormat().format(listing.get('salary_min')) %></p>
+              <p>Maximum Salary: <%%= listing.get('currency_code') %> <%%= Intl.NumberFormat().format(listing.get('salary_max')) %></p>
+              <%% if (listing.get('location')) {%>
+                <p>Location: <%%= listing.get('location') %></p>
+              <%% } %>
+              <p><%%= listing.get('company_name')%></p>
+        </div>
+        <div class="listing-description">
+          <p>Job Description: <%%= listing.get('description') %></p>
+        </div>
+        <div class="listing-btn">
+          <button class="destroy"> Not Interested</button>  <button class="keep"> Interested</button>
+        </div>
 </script>

@@ -14,11 +14,6 @@ class ListingsController < ApplicationController
     @favorite.save
   end
 
-  # def destroy
-  #   @listing = Listing.find(params[:id])
-  #   @listing.destroy
-  # end
-
   private
 
   def favorite_params
