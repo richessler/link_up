@@ -30,7 +30,7 @@ class LinkedinController < ApplicationController
       atoken, asecret = @client.authorize_from_request(session[:rtoken], session[:rsecret], pin)
       LinkedinOauthSetting.create!(:asecret => asecret, :atoken => atoken, :user_id => current_user.id)
     end
-    redirect_to "/"
+    redirect_to linkedin_path(current_user.id)
   end
 
   def generate_linkedin_oauth_url
@@ -66,8 +66,7 @@ class LinkedinController < ApplicationController
                     }
 
     new_basic_profile = BasicProfile.find_or_create_by(basic_profile)
-    # new_basic_profile.user = current_user
-    # new_basic_profile.save
+    new_basic_profile.user = current_user
     new_basic_profile
   end
 
