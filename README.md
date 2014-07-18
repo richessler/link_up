@@ -4,7 +4,7 @@
 
 ### Overview
 
-**[LinkUp](https://linkup.herokuapp.com/)** is the 'Tinder for Job Searches.' The goal for this project was to recreate a Tinder-like experience where a user can search job listings and make a judgement call whether they're 'Interested' or 'Not Interested.'  The 'Interested' job opportunities are persisted to a User's account for further review, and potential further action.
+**[LinkUp](https://linkup.herokuapp.com/)** is the 'Tinder for start-up jobs.' The goal for this project was to recreate a Tinder-like experience where a user can search job listings and make a judgement call whether they're 'Interested' or 'Not Interested.'  The 'Interested' job opportunities are saved to a User's account for further review and potential application submissions.
 
 **TO DO** Companies will also have accounts with the site which directly tie them to job listings.  When a User decides they are 'Interested', the company will get a notification informing them of the interested candidate.  If the company believes the candiate is a good fit for the open listing, they may decide they're 'Interested' in the candiate and emails will be sent to both parties, informing them of the match and sparking dialog.
 
