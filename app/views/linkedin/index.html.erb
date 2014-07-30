@@ -1,5 +1,46 @@
-<div class="linkedin-page">
-  <h1>Confirm Linkedin Authentication</h1>
-  <a href="/linkedin_oauth_url" class="btn btn-primary btn-larg">Are you Sure?</a>
-</div>
+ <div class="page-wrapper">
+  <section id="hero" class="hero-fixed hero-fade hero-medium">
+    <div class="hero-wrap-outer">
+      <div class="container">
+        <div class="hero-wrap-inner">
+                  </div>
+      </div>
+    </div>
+  </section>
 
+  <div class="container hero-content ">
+    <div class="row-fluid product-hero" data-analytics-section="hero">
+
+      <div class="span6 logged-out-left-hero-content">
+        <h1 id="page-title">Link<span class="title">Up</span></h1>
+        <h2 id="page-tag">Because Companies are People, too.</h2>
+      </div>
+
+        <div id="hero-custom-content" class="device-image-right">
+          <%= image_tag "splash.png", alt: "splash image", class: "splash-image" %>
+        </div>
+    </div>
+  </div>
+</div><!-- .page-wrapper -->
+
+<footer class="footer-container">
+
+  <div class="listings-enter">
+    <% if current_user %>
+      <%= button_to "Let's Mingle", listings_path, method: 'get', class: "btn listings-btn btn-group-lg" %>
+    <% end %>
+  </div>
+  <footer id="gaz-sub-footer" class="row-fluid">
+    <div class="container">
+      <div class="d-block d-block-helper-tfw g-helper-tfw-tweet-count-button">
+          <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="https://platform.twitter.com/widgets/tweet_button.1404859412.html#_=1405472533458&amp;count=horizontal&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=https%3A%2F%2Frichardhessler.%2F&amp;size=l&amp;text=LinkUp%20is%20the%20best%20app%20for%20jobs%20and%20was%20produced%20by%20@RJHessler%20from%20@GA_DC&amp;url=https%3A%2F%2Flinkup.herokuapp.com%2F" class="twitter-share-button twitter-tweet-button twitter-share-button twitter-count-horizontal" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 138px; height: 28px;">
+        </iframe>
+      </div>
+    </div>
+
+<footer id="globalfooter" class="row-fluid">
+    <div class="container">
+     <span class="copyright">© 2014 Richard Hessler</span>
+    </div>
+  </footer>
+</footer>

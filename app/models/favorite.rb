@@ -1,5 +1,5 @@
-class Favorite < ActiveRecord::Base
-  belongs_to :listing
-  belongs_to :user
+# class Favorite < ActiveRecord::Base
+#   belongs_to :listing
+#   belongs_to :user
 
-end
+# end

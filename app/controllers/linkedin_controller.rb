@@ -1,5 +1,6 @@
 class LinkedinController < ApplicationController
   before_filter :authenticate_user!
+  before_action :get_basic_profile
 
   @@config = {
     :site => 'https://api.linkedin.com',
@@ -11,15 +12,14 @@ class LinkedinController < ApplicationController
   def index
     unless LinkedinOauthSetting.find_by_user_id(current_user.id).nil?
     end
+    oauth_account
   end
 
   def show
-    @basic_profile = get_basic_profile
     @favorites = Favorite.where(user_id: current_user.id)
   end
 
   def linkedin_profile
-    @basic_profile = get_basic_profile
     @favorites = Favorite.where(user_id: current_user.id)
   end
 
@@ -45,15 +45,6 @@ class LinkedinController < ApplicationController
     end
   end
 
-  private
-
-  def get_client
-    linkedin_oauth_setting = LinkedinOauthSetting.find_by_user_id(current_user.id)
-    client = LinkedIn::Client.new(ENV["LINKEDIN_API_KEY"], ENV["LINKEDIN_SECRET"], @@config)
-    client.authorize_from_access(linkedin_oauth_setting.atoken, linkedin_oauth_setting.asecret)
-    client
-  end
-
   def get_basic_profile
     client = get_client
     profile = client.profile(:fields => ["first-name", "last-name", "maiden-name", "formatted-name" ,:headline, :location, :industry, :summary, :specialties, "picture-url", "public-profile-url"])
@@ -66,8 +57,16 @@ class LinkedinController < ApplicationController
                     }
     new_basic_profile = BasicProfile.find_or_create_by(basic_profile)
     new_basic_profile.user = current_user
-    new_basic_profile
+    @basic_profile = new_basic_profile
   end
 
+  private
+
+  def get_client
+    linkedin_oauth_setting = LinkedinOauthSetting.find_by_user_id(current_user.id)
+    client = LinkedIn::Client.new(ENV["LINKEDIN_API_KEY"], ENV["LINKEDIN_SECRET"], @@config)
+    client.authorize_from_access(linkedin_oauth_setting.atoken, linkedin_oauth_setting.asecret)
+    client
+  end
 end
 
