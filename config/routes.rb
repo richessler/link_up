@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get '/linkedin_profile' => 'linkedin#linkedin_profile'
   get '/oauth_account' => 'linkedin#oauth_account'
   get '/linkedin_oauth_url' => 'linkedin#generate_linkedin_oauth_url'
-  get '/get_basic_profile' => 'linkedin#get_basic_profile'
   root :to => 'welcome#index'
 
   resources :listings, only: [:index, :create, :new, :destroy]
