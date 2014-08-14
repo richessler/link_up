@@ -1,4 +1,8 @@
 <div class="sign-up">
   <h2>Sign up</h2>
-  <%= render "devise/shared/links" %>
+  <% if current_user? %>
+    <%= render "devise/shared/links" %>
+  <% else %>
+    <% redirect_to new_user_session_path %>
+  <% end %>
 </div>
